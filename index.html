@@ -142,7 +142,7 @@ body{margin:0;color:var(--ink);font-family:var(--font-ui);-webkit-font-smoothing
 <div class="wrap">
   <header class="rail">
     <div class="brandrow"><div class="brandmark"></div><h1>StockSafe</h1></div>
-    <div class="badgerow"><div class="badge">SDG 3 · Target 3.8</div><div class="badge">+ MedMesh network</div></div>
+    <div class="badgerow"><div class="badge">SDG 3 · Target 3.8</div><div class="badge">+ Weather signal</div><div class="badge">+ Emergency transfer</div></div>
     <p class="tagline">Stock-out and expiry alerts for small pharmacies, delivered on WhatsApp and SMS.</p>
     <p class="problem">A medicine can exist in the supply chain and still fail the patient at the shelf. StockSafe makes stock levels and expiry dates visible before they become failures — with a routine that takes seconds.</p>
     <ul class="flow">
@@ -161,7 +161,8 @@ body{margin:0;color:var(--ink);font-family:var(--font-ui);-webkit-font-smoothing
       <button class="tab" data-target="s-ledger">Ledger</button>
       <button class="tab" data-target="s-log">Log stock</button>
       <button class="tab" data-target="s-reorder">Reorder</button>
-      <button class="tab" data-target="s-network">Network</button>
+      <button class="tab" data-target="s-signal">Weather signal</button>
+      <button class="tab" data-target="s-transfer">Transfer</button>
     </div>
 
     <div class="phone">
@@ -264,30 +265,54 @@ body{margin:0;color:var(--ink);font-family:var(--font-ui);-webkit-font-smoothing
           </div>
         </section>
 
-        <section id="s-network" class="screen">
-          <div class="shead"><h2>MedMesh</h2><p>Privacy-preserving network, no patient data stored</p></div>
+        <section id="s-signal" class="screen">
+          <div class="shead"><h2>Weather signal</h2><p>Reordering shifts before your sales data does</p></div>
+          <div class="sbody">
+            <div class="bubble">
+              <div class="note">Most reorder tools only look backward, at what you've already sold. StockSafe also watches two things a sales log can't show yet: the local weather forecast and the events calendar — because demand for medicine often moves before anyone walks through the door.</div>
+            </div>
+            <div class="minihead">Active signals</div>
+            <div class="bubble">
+              <div class="lead amber">Heatwave forecast · 3 days out</div>
+              <div class="item"><div class="itxt">ORS sachets</div><span class="chip amber">Reorder moved earlier</span></div>
+              <div class="item"><div class="itxt">Suggested buffer</div><span class="chip neutral">Raised 40%</span></div>
+            </div>
+            <div class="bubble" style="margin-top:12px;">
+              <div class="lead amber">Monsoon onset · 6 days out</div>
+              <div class="item"><div class="itxt">Paracetamol 650mg</div><span class="chip amber">Buffer raised</span></div>
+              <div class="item"><div class="itxt">Azithromycin 250mg</div><span class="chip amber">Buffer raised</span></div>
+            </div>
+            <div class="bubble" style="margin-top:12px;">
+              <div class="lead">Ganesha Chaturthi crowd · Saturday</div>
+              <div class="item"><div class="itxt">First-aid &amp; antacids</div><span class="chip neutral">Flagged for review</span></div>
+              <div class="foot">From public weather and civic event data — no patient information involved.</div>
+            </div>
+            <button class="footlink">View all active signals</button>
+          </div>
+        </section>
+
+        <section id="s-transfer" class="screen">
+          <div class="shead"><h2>Emergency transfer</h2><p>Reserve stock with a nearby pharmacy when you're out</p></div>
           <div class="sbody">
             <div class="bubble urgent">
-              <div class="lead red">Urgent availability</div>
-              <div class="note">Amoxicillin unavailable here. 17 units reported at participating Pharmacy B, 1.4 km away.</div>
-              <div class="item"><div><div class="itxt">Pharmacy B</div><div class="isub">1.4 km · verified 18 min ago</div></div><span class="chip green">17 units</span></div>
-              <div class="item"><div><div class="itxt">Pharmacy C</div><div class="isub">2.1 km away</div></div><span class="chip amber">8 units</span></div>
-              <div class="item"><div><div class="itxt">Clinic D</div><div class="isub">Replenishment tomorrow</div></div><span class="chip red">0 units</span></div>
-              <div class="foot">No patient data needs to be stored — only stock counts are shared across the network.</div>
+              <div class="lead red">Amoxicillin 500mg — 0 units</div>
+              <div class="note">Transfer requested at 7:05 AM.</div>
+              <div class="item"><div><div class="itxt">Pharmacy B</div><div class="isub">1.4 km · reserved 12 min ago</div></div><span class="chip green">10 units held</span></div>
+              <div class="foot">Hold until 6:00 PM today. Show this screen at pickup.</div>
             </div>
-            <div class="bubble warn" style="margin-top:16px;">
-              <div class="lead amber">Community shortage signal</div>
-              <div class="note">Five nearby pharmacies are drawing down Amoxicillin faster than usual. Estimated local depletion in ~3 days.</div>
-              <div class="item"><div class="itxt">Current network stock</div><span class="chip neutral">42 units</span></div>
-              <div class="item"><div class="itxt">Normal consumption</div><span class="chip neutral">9/day</span></div>
-              <div class="item"><div class="itxt">Current consumption</div><span class="chip red">17/day</span></div>
+            <button class="btn primary" style="margin-top:12px;">Get directions</button>
+            <button class="btn ghost">Mark as picked up</button>
+            <div class="minihead">Requests from nearby pharmacies</div>
+            <div class="bubble">
+              <div class="item"><div><div class="itxt">Clinic D</div><div class="isub">Human Mixtard Insulin · 0.9 km away</div></div><span class="chip amber">Needs 5 vials</span></div>
+              <div class="foot">You have 18 vials, 12 days to expiry.</div>
             </div>
-            <div class="bubble" style="margin-top:16px;">
-              <div class="lead">Consumption trend</div>
-              <div class="barrow"><span class="blabel">Normal</span><div class="bartrack"><div class="barfill" style="width:53%"></div></div><span class="bval">9/day</span></div>
-              <div class="barrow"><span class="blabel">Current</span><div class="bartrack"><div class="barfill red" style="width:100%"></div></div><span class="bval">17/day</span></div>
+            <button class="btn primary" style="margin-top:10px;">Reserve 5 units</button>
+            <button class="btn ghost">Decline</button>
+            <div class="bubble" style="margin-top:4px;">
+              <div class="note">Only stock counts and pickup timing are shared to fulfill a request — no patient information is involved.</div>
             </div>
-            <button class="footlink">View network map</button>
+            <button class="footlink">View all transfer activity</button>
           </div>
         </section>
 
